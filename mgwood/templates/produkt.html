@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}{{ produkt['nazwa'] }} - MGWood{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>{{ produkt['nazwa'] }}</h1>
+        <p class="breadcrumb">
+            <a href="{{ url_for('index') }}">Strona g??wna</a> / 
+            <a href="{{ url_for('produkty') }}">Produkty</a> / 
+            <a href="{{ url_for('produkty_kategoria', kategoria=produkt['kategoria']) }}">
+                {% if produkt['kategoria'] == 'stoly' %}Sto?y{% endif %}
+                {% if produkt['kategoria'] == 'lozka' %}???ka{% endif %}
+                {% if produkt['kategoria'] == 'schody' %}Schody{% endif %}
+            </a> / 
+            {{ produkt['nazwa'] }}
+        </p>
+    </div>
+</section>
+
+<section class="section product-detail">
+    <div class="container">
+        <div class="product-detail-grid">
+            <div class="product-detail-image">
+                <div class="placeholder-image-large">
+                    {% if produkt['kategoria'] == 'stoly' %}??{% endif %}
+                    {% if produkt['kategoria'] == 'lozka' %}???{% endif %}
+                    {% if produkt['kategoria'] == 'schody' %}??{% endif %}
+                </div>
+            </div>
+            <div class="product-detail-info">
+                <h2>{{ produkt['nazwa'] }}</h2>
+                <p class="product-detail-price">{{ "%.2f"|format(produkt['cena']) }} z?</p>
+                
+                <div class="product-detail-description">
+                    <h3>Opis</h3>
+                    <p>{{ produkt['opis'] }}</p>
+                </div>
+
+                <div class="product-detail-specs">
+                    <h3>Specyfikacja</h3>
+                    <table class="specs-table">
+                        <tr>
+                            <td><strong>Materia?:</strong></td>
+                            <td>{{ produkt['material'] }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Wymiary:</strong></td>
+                            <td>{{ produkt['wymiary'] }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Kategoria:</strong></td>
+                            <td>
+                                {% if produkt['kategoria'] == 'stoly' %}Sto?y{% endif %}
+                                {% if produkt['kategoria'] == 'lozka' %}???ka{% endif %}
+                                {% if produkt['kategoria'] == 'schody' %}Schody{% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="product-detail-features">
+                    <h3>Cechy produktu</h3>
+                    <ul>
+                        <li>? R?czne wykonanie</li>
+                        <li>? Lite drewno d?bowe</li>
+                        <li>? Mo?liwo?? dostosowania wymiar?w</li>
+                        <li>? Ekologiczne wyko?czenie</li>
+                        <li>? Gwarancja jako?ci</li>
+                    </ul>
+                </div>
+
+                <div class="product-detail-actions">
+                    <a href="{{ url_for('kontakt') }}" class="btn btn-primary btn-large">Zapytaj o produkt</a>
+                    <a href="tel:+48695129969" class="btn btn-secondary btn-large">Zadzwo?: 695 129 969</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-info">
+    <div class="container">
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>?? Dostawa</h3>
+                <p>Oferujemy dostaw? na terenie ca?ej Polski. Koszt ustalamy indywidualnie.</p>
+            </div>
+            <div class="info-card">
+                <h3>?? Wymiary na zam?wienie</h3>
+                <p>Dostosujemy wymiary produktu do Twoich potrzeb i przestrzeni.</p>
+            </div>
+            <div class="info-card">
+                <h3>??? Monta?</h3>
+                <p>Na ?yczenie oferujemy profesjonalny monta? zakupionych produkt?w.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

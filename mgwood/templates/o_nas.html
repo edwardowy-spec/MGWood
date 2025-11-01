@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}O nas - MGWood{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>O nas</h1>
+        <p class="breadcrumb">
+            <a href="{{ url_for('index') }}">Strona g??wna</a> / O nas
+        </p>
+    </div>
+</section>
+
+<section class="section about-section">
+    <div class="container">
+        <div class="about-content">
+            <h2>MGWood - Pasja do drewna</h2>
+            <p class="lead">Jeste?my firm? rodzinn? specjalizuj?c? si? w produkcji wysokiej jako?ci mebli z litego drewna d?bowego. Ka?dy produkt wykonujemy r?cznie z dba?o?ci? o najdrobniejsze szczeg??y.</p>
+
+            <div class="about-text">
+                <h3>Nasza historia</h3>
+                <p>MGWood to efekt po??czenia wieloletniej pasji do pracy z drewnem oraz d??enia do tworzenia produkt?w najwy?szej jako?ci. Firma zosta?a za?o?ona przez Marcina Grz?nk?, kt?ry od lat zajmuje si? stolarstwem i r?cznym wykonywaniem mebli.</p>
+                
+                <p>Nasze meble powstaj? w ma?ej manufakturze w Rybnicy, gdzie tradycyjne metody stolarskie ??czymy z nowoczesnym designem. Ka?dy element jest starannie dobrany i obrobiony, aby spe?nia? najwy?sze standardy jako?ci i trwa?o?ci.</p>
+
+                <h3>Co nas wyr??nia?</h3>
+                <ul class="features-list">
+                    <li><strong>100% lite drewno</strong> - Nie u?ywamy p?yt, oklein ani imitacji. Tylko prawdziwe, solidne drewno d?bowe.</li>
+                    <li><strong>R?czne wykonanie</strong> - Ka?dy mebel jest tworzony r?cznie przez do?wiadczonych stolarzy.</li>
+                    <li><strong>Indywidualne podej?cie</strong> - Dostosowujemy wymiary i wyko?czenie do potrzeb klienta.</li>
+                    <li><strong>Ekologia</strong> - Drewno pochodzi z certyfikowanych ?r?de?, a wyko?czenie jest ekologiczne.</li>
+                    <li><strong>Trwa?o??</strong> - Nasze meble s?u?? przez pokolenia.</li>
+                </ul>
+
+                <h3>Nasza oferta</h3>
+                <p>W MGWood specjalizujemy si? w produkcji:</p>
+                <ul class="products-list">
+                    <li><strong>Sto??w d?bowych</strong> - od rustykalnych po nowoczesne loftowe</li>
+                    <li><strong>???ek drewnianych</strong> - solidnych i eleganckich</li>
+                    <li><strong>Schod?w z drewna</strong> - stopni, podstopnic i kompletnych konstrukcji</li>
+                </ul>
+
+                <h3>Filozofia pracy</h3>
+                <p>Wierzymy, ?e meble powinny s?u?y? przez pokolenia. Dlatego u?ywamy tylko najlepszych materia??w i sprawdzonych technik stolarskich. Ka?dy element jest starannie dopasowany i wyko?czony, aby zapewni? maksymaln? trwa?o?? i funkcjonalno??.</p>
+
+                <p>Nasza praca to nie tylko rzemios?o, ale przede wszystkim pasja. Ka?dy projekt traktujemy indywidualnie, dbaj?c o to, aby finalny efekt przekroczy? oczekiwania klienta.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-values">
+    <div class="container">
+        <h2>Nasze warto?ci</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <div class="value-icon">??</div>
+                <h3>Jako??</h3>
+                <p>Najwy?sza jako?? materia??w i wykonania</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">??</div>
+                <h3>Ekologia</h3>
+                <p>Odpowiedzialne pozyskiwanie surowc?w</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">??</div>
+                <h3>Zaufanie</h3>
+                <p>Uczciwe relacje z klientami</p>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">?</div>
+                <h3>Indywidualno??</h3>
+                <p>Ka?dy projekt jest wyj?tkowy</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-cta-small">
+    <div class="container">
+        <div class="cta-content">
+            <h3>Chcesz dowiedzie? si? wi?cej?</h3>
+            <p>Skontaktuj si? z nami - ch?tnie opowiemy o naszej pracy i produktach.</p>
+            <a href="{{ url_for('kontakt') }}" class="btn btn-primary">Skontaktuj si?</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
