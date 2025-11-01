@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block title %}MGWood - R?cznie wykonane meble z drewna - Sto?y, ???ka, Schody{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h1>R?cznie wykonane meble z drewna</h1>
+        <p class="hero-subtitle">Sto?y ? ???ka ? Schody</p>
+        <p class="hero-description">Tworzymy unikalne meble z litego drewna d?bowego, ??cz?c tradycyjne rzemios?o z nowoczesnym designem.</p>
+        <div class="hero-buttons">
+            <a href="{{ url_for('produkty') }}" class="btn btn-primary">Zobacz produkty</a>
+            <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Kontakt</a>
+        </div>
+    </div>
+</section>
+
+<section class="section section-about">
+    <div class="container">
+        <div class="section-header">
+            <h2>Dlaczego MGWood?</h2>
+            <p>Pasja, do?wiadczenie i najwy?sza jako??</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">??</div>
+                <h3>100% Lite drewno</h3>
+                <p>U?ywamy wy??cznie litego drewna d?bowego najwy?szej jako?ci, bez oklein i p?yt.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">?</div>
+                <h3>R?czne wykonanie</h3>
+                <p>Ka?dy mebel jest r?cznie wykonywany z dba?o?ci? o najdrobniejsze szczeg??y.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">??</div>
+                <h3>Indywidualne projekty</h3>
+                <p>Dostosowujemy wymiary i wyko?czenie do Twoich potrzeb i wn?trza.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">??</div>
+                <h3>Trwa?o??</h3>
+                <p>Nasze meble s?u?? przez pokolenia dzi?ki solidnemu wykonaniu.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-products">
+    <div class="container">
+        <div class="section-header">
+            <h2>Nasze produkty</h2>
+            <p>Poznaj nasz? ofert?</p>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-image">
+                    <div class="placeholder-image">??</div>
+                </div>
+                <h3>Sto?y d?bowe</h3>
+                <p>Masywne sto?y z litego d?bu w r??nych stylach - od rustykalnych po nowoczesne.</p>
+                <a href="{{ url_for('produkty_kategoria', kategoria='stoly') }}" class="btn btn-outline">Zobacz sto?y</a>
+            </div>
+            <div class="category-card">
+                <div class="category-image">
+                    <div class="placeholder-image">???</div>
+                </div>
+                <h3>???ka drewniane</h3>
+                <p>Solidne ???ka z litego drewna d?bowego, zapewniaj?ce komfort i elegancj?.</p>
+                <a href="{{ url_for('produkty_kategoria', kategoria='lozka') }}" class="btn btn-outline">Zobacz ???ka</a>
+            </div>
+            <div class="category-card">
+                <div class="category-image">
+                    <div class="placeholder-image">??</div>
+                </div>
+                <h3>Schody z drewna</h3>
+                <p>Stopnie, podstopnice i komplety schod?w wykonane z litego d?bu.</p>
+                <a href="{{ url_for('produkty_kategoria', kategoria='schody') }}" class="btn btn-outline">Zobacz schody</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Masz pytania? Skontaktuj si? z nami!</h2>
+            <p>Ch?tnie odpowiemy na wszystkie pytania i przygotujemy indywidualn? wycen?.</p>
+            <div class="cta-buttons">
+                <a href="tel:+48695129969" class="btn btn-primary">Zadzwo?: 695 129 969</a>
+                <a href="{{ url_for('kontakt') }}" class="btn btn-secondary">Formularz kontaktowy</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

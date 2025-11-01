@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block title %}Kontakt - MGWood{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>Kontakt</h1>
+        <p class="breadcrumb">
+            <a href="{{ url_for('index') }}">Strona g??wna</a> / Kontakt
+        </p>
+    </div>
+</section>
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <h2>Skontaktuj si? z nami</h2>
+                <p>Ch?tnie odpowiemy na wszystkie pytania dotycz?ce naszych produkt?w i przygotujemy indywidualn? wycen?.</p>
+                
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">??</div>
+                        <div class="contact-text">
+                            <h3>W?a?ciciel</h3>
+                            <p><strong>Marcin Grzanka</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">??</div>
+                        <div class="contact-text">
+                            <h3>Firma</h3>
+                            <p><strong>MGWood</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">??</div>
+                        <div class="contact-text">
+                            <h3>Adres</h3>
+                            <p>58-512 Rybnica 140 lok. 1</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">??</div>
+                        <div class="contact-text">
+                            <h3>Telefon</h3>
+                            <p><a href="tel:+48695129969">695 129 969</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">??</div>
+                        <div class="contact-text">
+                            <h3>Email</h3>
+                            <p><a href="mailto:mgwood102@gmail.com">mgwood102@gmail.com</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                {% if sukces %}
+                <div class="success-message">
+                    <h3>? Dzi?kujemy za wiadomo??!</h3>
+                    <p>Skontaktujemy si? z Tob? najszybciej jak to mo?liwe.</p>
+                    <a href="{{ url_for('index') }}" class="btn btn-primary">Powr?t do strony g??wnej</a>
+                </div>
+                {% else %}
+                <form method="POST" action="{{ url_for('kontakt') }}" class="contact-form">
+                    <h3>Formularz kontaktowy</h3>
+                    
+                    <div class="form-group">
+                        <label for="imie">Imi? i nazwisko *</label>
+                        <input type="text" id="imie" name="imie" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefon">Telefon</label>
+                        <input type="tel" id="telefon" name="telefon">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wiadomosc">Wiadomo?? *</label>
+                        <textarea id="wiadomosc" name="wiadomosc" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-large">Wy?lij wiadomo??</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-map">
+    <div class="container">
+        <h2>Gdzie nas znale???</h2>
+        <div class="map-info">
+            <p><strong>MGWood - Rybnica 140 lok. 1, 58-512 Rybnica</strong></p>
+            <p>Zapraszamy do kontaktu telefonicznego przed wizyt?, aby um?wi? dogodny termin spotkania.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

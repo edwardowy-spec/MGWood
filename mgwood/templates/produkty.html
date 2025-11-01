@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if kategoria %}
+    {% if kategoria == 'stoly' %}Sto?y d?bowe{% endif %}
+    {% if kategoria == 'lozka' %}???ka drewniane{% endif %}
+    {% if kategoria == 'schody' %}Schody z drewna{% endif %}
+    - MGWood
+{% else %}
+    Wszystkie produkty - MGWood
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<section class="page-header">
+    <div class="container">
+        <h1>
+            {% if kategoria %}
+                {% if kategoria == 'stoly' %}Sto?y d?bowe{% endif %}
+                {% if kategoria == 'lozka' %}???ka drewniane{% endif %}
+                {% if kategoria == 'schody' %}Schody z drewna{% endif %}
+            {% else %}
+                Wszystkie produkty
+            {% endif %}
+        </h1>
+        <p class="breadcrumb">
+            <a href="{{ url_for('index') }}">Strona g??wna</a> / 
+            {% if kategoria %}
+                <a href="{{ url_for('produkty') }}">Produkty</a> / 
+                {% if kategoria == 'stoly' %}Sto?y{% endif %}
+                {% if kategoria == 'lozka' %}???ka{% endif %}
+                {% if kategoria == 'schody' %}Schody{% endif %}
+            {% else %}
+                Produkty
+            {% endif %}
+        </p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="products-filter">
+            <a href="{{ url_for('produkty') }}" class="filter-btn {% if not kategoria %}active{% endif %}">Wszystkie</a>
+            <a href="{{ url_for('produkty_kategoria', kategoria='stoly') }}" class="filter-btn {% if kategoria == 'stoly' %}active{% endif %}">Sto?y</a>
+            <a href="{{ url_for('produkty_kategoria', kategoria='lozka') }}" class="filter-btn {% if kategoria == 'lozka' %}active{% endif %}">???ka</a>
+            <a href="{{ url_for('produkty_kategoria', kategoria='schody') }}" class="filter-btn {% if kategoria == 'schody' %}active{% endif %}">Schody</a>
+        </div>
+
+        {% if produkty %}
+        <div class="products-grid">
+            {% for produkt in produkty %}
+            <div class="product-card">
+                <div class="product-image">
+                    <div class="placeholder-image">
+                        {% if produkt['kategoria'] == 'stoly' %}??{% endif %}
+                        {% if produkt['kategoria'] == 'lozka' %}???{% endif %}
+                        {% if produkt['kategoria'] == 'schody' %}??{% endif %}
+                    </div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">{{ produkt['nazwa'] }}</h3>
+                    <p class="product-description">{{ produkt['opis'][:80] }}...</p>
+                    <div class="product-details">
+                        <span class="product-material">{{ produkt['material'] }}</span>
+                        <span class="product-dimensions">{{ produkt['wymiary'] }}</span>
+                    </div>
+                    <div class="product-footer">
+                        <span class="product-price">{{ "%.2f"|format(produkt['cena']) }} z?</span>
+                        <a href="{{ url_for('produkt', id=produkt['id']) }}" class="btn btn-small">Zobacz wi?cej</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="no-products">
+            <p>Brak produkt?w w tej kategorii.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="section section-cta-small">
+    <div class="container">
+        <div class="cta-content">
+            <h3>Szukasz mebla na wymiar?</h3>
+            <p>Skontaktuj si? z nami - przygotujemy indywidualny projekt i wycen?.</p>
+            <a href="{{ url_for('kontakt') }}" class="btn btn-primary">Zapytaj o wycen?</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
